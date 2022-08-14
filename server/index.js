@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
+const { shortenURL, queryLongURL } = require("./controller/urlShortener");
 
 const PORT = process.env.PORT || 5000;
 
@@ -10,14 +11,11 @@ app.use(express.json());
 
 // routes
 
-// Shorten url
-app.post("/shorten-url", async (req, res) => {
-  try {
-    console.log(req.body)
-  } catch (err) {
-    console.log(err.message);
-  }
-});
+// Shorten long url
+app.post("/shorten-url", shortenURL);
+
+// Query long url
+app.get("/:shortId", queryLongURL);
 
 app.get("/", (req, res) => {});
 
