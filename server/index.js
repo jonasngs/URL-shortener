@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db");
+const nanoid = require('nanoid');
 const { shortenURL, queryLongURL } = require("./controller/urlShortener");
 
 const PORT = process.env.PORT || 5000;
@@ -16,7 +16,5 @@ app.post("/shorten-url", shortenURL);
 
 // Query long url
 app.get("/:shortId", queryLongURL);
-
-app.get("/", (req, res) => {});
 
 app.listen(PORT, () => console.log(`server started, listening PORT ${PORT}`));
