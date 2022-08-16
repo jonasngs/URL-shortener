@@ -12,6 +12,8 @@ function HandleRedirect() {
 
   useEffect(() => {
     async function getLongURL() {
+      console.log("TESTTEST");
+      console.log(shortId);
       return axios
         .get(`/api/${shortId}`)
         .then((res) => {
