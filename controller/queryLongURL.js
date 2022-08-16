@@ -4,6 +4,7 @@ const baseURL = "https://url-shortener-tap.herokuapp.com";
 async function queryLongURL(req, res) {
   try {
     const { shortId } = req.params;
+    console.log("HHHHHHHHHH")
     const shortURL = baseURL + "/" + shortId;
     const urlMapping = await pool.query(
       "SELECT long_url FROM url_tab WHERE short_url = $1",
