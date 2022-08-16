@@ -12,16 +12,11 @@ function HandleRedirect() {
 
   useEffect(() => {
     async function getLongURL() {
-      console.log("TESTTEST");
-      console.log(useParams);
       return axios
         .get(`/api/${shortId}`)
         .then((res) => {
-          console.log("NO ERROR");
-          console.log(res.data["longURL"])
           setDestination(res.data["longURL"])})
         .catch((err) => {
-          console.log("ERROR");
           setErrorMessage(err.response.data["error"]);
         });
     }
@@ -44,7 +39,7 @@ function HandleRedirect() {
         </div> :
         <div>
         <h1> Error: {errorMessage} </h1>
-        <a href="https://url-shortener-tap.herokuapp.com/"> Return to homepage </a>
+        <a href="http://localhost:3000"> Return to homepage </a>
         </div>
       }
     </Fragment>
