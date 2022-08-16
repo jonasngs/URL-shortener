@@ -8,7 +8,7 @@ function HandleRedirect() {
   const [errorMessage, setErrorMessage] = useState("");
   const [longURL, setLongURL] = useState("");
 
-  const {shortId} = useParams()
+  const {shortId} = useParams();
 
   useEffect(() => {
     async function getLongURL() {

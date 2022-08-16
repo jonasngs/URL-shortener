@@ -14,40 +14,39 @@ async function shortenURL(req, res) {
           [longURL]
         );
         if (urlMapping.rows.length == 0) { // Long URL does not exist in db
-          const shortId = await generateShortURL(longURL);
-          const shortURL = baseURL + "/" + shortId
+          const shortURL = await generateShortURL();
           const newURL = await pool.query(
             "INSERT INTO url_tab (long_url, short_url, created_at) VALUES ($1, $2, $3) RETURNING *",
             [longURL, shortURL, generateEpoch()]
-          )
+          );
   
-          res.status(200).json({ shortURL: shortURL })
+          res.status(200).json({ shortURL: shortURL });
         } else {
           // Long URL exists in db, return short url
-          res.status(200).json({ shortURL: urlMapping.rows[0]["short_url"]})
+          res.status(200).json({ shortURL: urlMapping.rows[0]["short_url"]});
         }
       }
       
     } catch (err) {
       res.status(400).json({ 'error': err.message});
-      console.log(err);
     }
 }
 
 // Function to regenerate short URL in the event of collision, with a maximum of 3 retries
-async function generateShortURL(longURL) {
+async function generateShortURL() {
   var retries = 3;
   while (retries > 0) {
     const shortId = nanoid(7);
+    const shortURL = baseURL + "/" + shortId;
     const shortURLRecord = await pool.query(
-      "SELECT short_url FROM url_tab WHERE long_url = $1",
-      [longURL]
+      "SELECT * FROM url_tab WHERE short_url = $1",
+      [shortURL]
     )
     if (shortURLRecord.rows.length != 0) { // short URL already exists in db
       retries--;
       continue;
     }
-    return shortId;
+    return shortURL;
   }
 
   throw new Error('Error while generating short URL.')
@@ -57,4 +56,4 @@ function generateEpoch() {
   return Math.floor(Date.now() / 1000)
 }
 
-module.exports = { shortenURL }
+module.exports = { shortenURL, generateShortURL }

@@ -15,11 +15,11 @@ function URLShortener() {
     })
     .then(res => {
       setErrorMessage("");
-      setShortURL(res.data["shortURL"])
+      setShortURL(res.data["shortURL"]);
     })
     .catch(err => {
       setShortURL("");
-      setErrorMessage(err.response.data["error"])
+      setErrorMessage(err.response.data["error"]);
     })
   } 
 

@@ -10,7 +10,7 @@ async function queryLongURL(req, res) {
       [shortURL]
     );
     if (urlMapping.rows.length == 0) { // Short URL does not exist in db
-      throw new Error("Short URL is invalid")
+      throw new Error("Short URL is invalid");
     } else {
       res.status(200).json({longURL: urlMapping.rows[0]["long_url"]});
     }
