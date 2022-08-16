@@ -1,5 +1,5 @@
 const pool = require("../db");
-const baseURL = "https://url-shortener-tap.herokuapp.com/";
+const baseURL = "https://url-shortener-tap.herokuapp.com";
 
 async function queryLongURL(req, res) {
   try {
