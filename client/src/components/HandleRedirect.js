@@ -13,7 +13,7 @@ function HandleRedirect() {
   useEffect(() => {
     async function getLongURL() {
       console.log("TESTTEST");
-      console.log(shortId);
+      console.log(useParams);
       return axios
         .get(`/api/${shortId}`)
         .then((res) => {
@@ -30,7 +30,7 @@ function HandleRedirect() {
 
   useEffect(() => {
       if (destination !== "") {
-        window.location.replace("https://facebook.com");
+        window.location.replace(destination);
       }
   }, [destination]);
 
