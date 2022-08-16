@@ -13,7 +13,7 @@ To run the application:
 
 3. As the data persists in a PostgreSQL database, you will need to have the latest version of PostgreSQl installed.
 
-4. Follow the table scheme in `database.sql` file to create the necessary database and table.
+4. Follow the table schema in `database.sql` file to create the necessary database and table.
 
 5. Ensure that the PostgreSQL credentials in `.env` file are updated to match your local PostgreSQL server credentials
 
