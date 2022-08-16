@@ -18,6 +18,7 @@ function HandleRedirect() {
         .get(`/api/${shortId}`)
         .then((res) => {
           console.log("NO ERROR");
+          console.log(res.data["longURL"])
           setDestination(res.data["longURL"])})
         .catch((err) => {
           console.log("ERROR");
