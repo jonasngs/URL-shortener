@@ -17,8 +17,10 @@ function HandleRedirect() {
       return axios
         .get(`/api/${shortId}`)
         .then((res) => {
+          console.log("NO ERROR");
           setDestination(res.data["longURL"])})
         .catch((err) => {
+          console.log("ERROR");
           setErrorMessage(err.response.data["error"]);
         });
     }
