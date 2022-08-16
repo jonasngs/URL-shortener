@@ -30,7 +30,7 @@ function HandleRedirect() {
 
   useEffect(() => {
       if (destination !== "") {
-        window.location.replace(destination);
+        window.location.replace("https://facebook.com");
       }
   }, [destination]);
 
