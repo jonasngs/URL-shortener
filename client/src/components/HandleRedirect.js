@@ -13,7 +13,7 @@ function HandleRedirect() {
   useEffect(() => {
     async function getLongURL() {
       return axios
-        .get(`http://localhost:5000/${shortId}`)
+        .get(`/${shortId}`)
         .then((res) => {
           setDestination(res.data["longURL"])})
         .catch((err) => {

@@ -10,7 +10,7 @@ function URLShortener() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/shorten-url", {
+    axios.post("/shorten-url", {
       longURL: longURL,
     })
     .then(res => {
