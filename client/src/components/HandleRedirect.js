@@ -39,7 +39,7 @@ function HandleRedirect() {
         </div> :
         <div>
         <h1> Error: {errorMessage} </h1>
-        <a href="http://localhost:3000"> Return to homepage </a>
+        <a href="https://url-shortener-tap.herokuapp.com/"> Return to homepage </a>
         </div>
       }
     </Fragment>

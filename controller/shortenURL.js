@@ -1,7 +1,7 @@
 const pool = require("../db");
 const { nanoid } = require("nanoid");
 const validUrl = require("valid-url");
-const baseURL = "http://localhost:3000";
+const baseURL = "https://url-shortener-tap.herokuapp.com/";
 
 async function shortenURL(req, res) {
     try {
