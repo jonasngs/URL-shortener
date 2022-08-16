@@ -15,9 +15,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Shorten long url
-app.post("/shorten-url", shortenURL);
+app.post("/api/shorten-url", shortenURL);
 
 // Query long url
-app.get("/:shortId", queryLongURL);
+app.get("/api/:shortId", queryLongURL);
 
 app.listen(PORT, () => console.log(`server started, listening PORT ${PORT}`));
