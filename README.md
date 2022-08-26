@@ -15,7 +15,7 @@ To run the application:
 
 4. Follow the table schema in `database.sql` file to create the necessary database and table.
 
-5. Ensure that the PostgreSQL credentials in `.env` file are updated to match your local PostgreSQL server credentials
+5. Ensure that the PostgreSQL credentials in `.env` file are updated to match your local PostgreSQL server credentials.
 
 6. In one terminal, in the root directory, run `cd client` followed by `npm start` to start the client instance
 
